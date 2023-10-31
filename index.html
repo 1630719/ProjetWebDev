@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projet</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="bootstrap-5.3.2-dist/css/script.js"></script>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.rtl.css">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap-grid.rtl.css">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap-reboot.rtl.css">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap-utilities.rtl.css">
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.esm.js"></script>
+    <script src="bootstrap-5.3.2-dist/js/bootstrap.js"></script>
+</head>
+
+<!-- Partie saisie de données -->
+<body class="container row">
+    <form class="container mb-3 col-6">
+        <h1 class="display-6 fw-semibold bg-dark-subtle text-break mb-4 pe-auto" > Informations pour rendez-vous</h1>
+        <div class="mb-3">
+            <!-- **Ajouter pattern pour ne pas avoir de chiffres dans le nom -->
+            <label for="NomProprio" class="form-label"> Nom du propriétaire* </label>
+            <input type="text" required placeholder="Xavier Ayotte" min="5" max="25" name="NomProprio" id="NomProprio" class="form-control col-md-5 " >
+        </div>
+        <!-- **Ajouter pattern pour ne pas avoir de chiffres dans le nom -->
+        <div class="mb-3">
+            <label for="NomAnimal" class="form-label"> Nom de l'animal* </label>
+            <input type="text" required placeholder="Léo" min="5" max="25" name="Nom" id="NomAnimal" class="form-control col-md-5" >
+        </div>
+        <!-- **Ajouter pattern pour ne pas avoir de chiffres dans le nom. Surnom facultatif -->
+        <div class="mb-3">
+            <label for="SurnomAnimal" class="form-label"> Surnom de l'animal </label>
+            <input type="text" placeholder="Little Man" min="5" max="25" name="Nom" id="SurnomAnimal" class="form-control col-md-5" >
+        </div>
+        <div class="mb-3">
+            <!-- Validation faite avec Regex -->
+            <label for="NumTel" class="form-label"> Numéro de téléphone* </label>
+            <input type="tel" name="NumTel" id="NumTel" required class="form-control col-md-5" placeholder="819 555-1234" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"> <!-- Par exemple +1 819 555-5555 ou (819) 555-5555 -->
+            <!-- Type d'animal en select. Options: Chien, Chat, Lapin, Rongueur, Oiseau -->
+            <!-- Sexe de l'animal input Radio male/femelle (revoir un formulaire pour juste en avoir un de coché à la fois -->
+            <!-- Neutered/spaded Maybe function pour toggle on and off l'option ou juste cocher non-applicable-->
+        </div>
+    </form>
+    <div class="container col">
+        <div class="mb-3">
+            <label for="Dummy" class="form-label"> Dummy </label>
+            <input type="text" required min="5" max="25" name="Dummy" id="Dummy" class="form-control col-md-2" >
+        </div>
+        <div class="mb-3">
+            <label for="Test" class="form-label"> Test </label>
+            <input type="text" required min="5" max="25" name="Test" id="Test" class="form-control col-md-2" >
+        </div>
+    </div>
+    <!-- Maybe un select pour le nom du veterinaire. -->
+
+</body>
+</html>
