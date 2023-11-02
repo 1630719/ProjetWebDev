@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Projet</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.rtl.css">
     <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap-grid.css">
@@ -20,45 +20,45 @@
 
 <!-- Partie saisie de données -->
 <body style="background-image: url(animal-background.jpg)">
-    <div class="row">
-        <div class="col container">
-            <form class=" row g-3">
+    <div class="row ms-2">
+        <div class="col container border-1">
+            <form class=" row g-3" onsubmit="event.preventDefault()">
                 <h1 class="display-6 fw-semibold bg-me text-break mb-4 pe-auto" > Informations pour rendez-vous</h1>
                 <div class="mb-3 col-md-6">
-                    <!-- **Ajouter pattern pour ne pas avoir de chiffres dans le nom -->
                     <label for="NomProprio" class="form-label fw-bold" style="background: white"> Nom du propriétaire* </label>
-                    <input type="text" required placeholder="Xavier Ayotte" min="5" max="25" name="NomProprio" id="NomProprio" class="form-control " >
+                    <input type="text" required placeholder="Xavier Ayotte" min="5" max="25" name="NomProprio" id="NomProprio" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{5,10}\s[a-zA-Z]{5,10}$" >
                 </div>
                 <div class="mb-3 col-md-6">
                     <!-- Validation faite avec Regex -->
                     <label for="Courriel" class="form-label fw-bold" style="background: white"> Courriel* : </label>
-                    <input type="email" name="Courriel" id="Courriel" required class="form-control" placeholder="1630719@cegepoutaouais.qc.ca"> <!-- Trouver regex pour email-->
+                    <input type="email" name="Courriel" id="Courriel" required class="form-control" placeholder="1630719@cegepoutaouais.qc.ca" pattern=">
+                    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">
                 </div>
                 <div class="mb-3 col-md-6">
                     <!-- Validation faite avec Regex -->
                     <label for="NumTel" class="form-label fw-bold "> Numéro de cellulaire* </label>
-                    <input type="tel" name="NumTel" id="NumTel" required class="form-control" placeholder="819 555-1234" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"> <!-- Par exemple +1 819 555-5555 ou (819) 555-5555 -->
+                    <input type="tel" name="NumTel" id="NumTel" required class="form-control" placeholder="819 555-1234" pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$"> <!-- Par exemple +1 819 555-5555 ou (819) 555-5555 -->
                 </div>
                 <div class="mb-3 col-md-6">
                     <!-- Validation faite avec Regex -->
                     <label for="NumMaison" class="form-label fw-bold"> Numéro à la maison : </label>
-                    <input type="tel" name="NumMaison" id="NumMaison"  class="form-control" placeholder="819 555-5555" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"> <!-- Trouver regex pour email-->
+                    <input type="tel" name="NumMaison" id="NumMaison"  class="form-control" placeholder="819 555-5555" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$">
                 </div>
 
                 <!-- **Ajouter pattern pour ne pas avoir de chiffres dans le nom -->
                 <div class="mb-3 col-md-6">
                     <label for="NomAnimal" class="form-label fw-bold"> Nom de l'animal* </label>
-                    <input type="text" required placeholder="Léo" min="5" max="25" name="Nom" id="NomAnimal" class="form-control" >
+                    <input type="text" required placeholder="Léo" min="5" max="25" name="Nom" id="NomAnimal" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{5,10}\s[a-zA-Z]{3,10}$" >
                 </div>
                 <!-- **Ajouter pattern pour ne pas avoir de chiffres dans le nom. Surnom facultatif -->
                 <div class="mb-3 col-md-6">
                     <label for="SurnomAnimal" class="form-label fw-bold"> Surnom de l'animal </label>
-                    <input type="text" placeholder="Little Man" min="5" max="25" name="Nom" id="SurnomAnimal" class="form-control" >
+                    <input type="text" placeholder="Little Man" min="5" max="25" name="Nom" id="SurnomAnimal" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{5,10}\s[a-zA-Z]{3,10}$" >
                 </div>
-                <div class="mt-0  offset-4 row col-md-4">
+                <div class="mt-0  offset-4 row col-md-5">
                     <div class="form-check">
                         <p class="fw-bold"> Sexe de l'animal :</p>
-                        <input type="radio" id="SexeMale" name="SexeAnimal" value="Male" class="form-check-input border-black border-2 ">
+                        <input type="radio" id="SexeMale" name="SexeAnimal" required value="Male" class="form-check-input border-black border-2 ">
                         <label for="SexeMale" class="form-label"> Mâle </label>
                     </div>
                     <div class="form-check">
@@ -66,11 +66,16 @@
                         <label for="SexeFemelle" class="form-label"> Femelle </label>
                     </div>
                 </div>
-                <div class="col-md-12"></div>
+                <div class="row"></div>
+
+                <div>
+                    <input class="btn btn-primary" type="submit" value="Soumettre" id="BoutonEnvoyer">
+                    <input class="btn btn-secondary" type="reset" value="Annuler" id="BoutonAnnuler">
+                </div>
 
             </form>
         </div>
-        <div class="col offset-1">
+        <div id="ListeRDV" class="col 4 container">
             <h1 class="display-6"> Liste de rendez-vous</h1>
         </div>
     </div>
