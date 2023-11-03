@@ -1,3 +1,12 @@
 .Gras {
     font-weight: bold;
 }
+
+.LabelErreur {
+    font-size: 15px;
+}
+
+span
+{
+    font-weight: 600;
+}
