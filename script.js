@@ -1,6 +1,10 @@
 
-let $form = $("form")
-const $ListeRDV = $("#ListeRDV")
+let $form = $("#Form")
+let $ListeRDV = $("#ListeRDV")
+let $courriel = $("#Courriel")
+let $compteur = 0
+let $ChaineBold = $("#ChaineBold")
+let $NomProprio = $("#NomProprio")
 
 // Boutons
 const $btn_annuler = $("#BoutonAnnuler")
@@ -13,7 +17,12 @@ $btn_annuler.on('click', function ()
     window.location.reload()
 })
 
-$form.on('submit', function ()
+$form.on("submit", function ()
 {
-    alert("Submitted")
+    $compteur++  // Incrémenter de 1
+
+    $ListeRDV.append("Courriel : "+ $courriel.val() + "<br>" +
+                     "Nom propriétaire : " + $NomProprio.val() + "<br>")
+
 })
+

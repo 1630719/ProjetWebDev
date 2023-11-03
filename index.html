@@ -16,17 +16,18 @@
     <script src="bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
     <script src="bootstrap-5.3.2-dist/js/bootstrap.esm.js"></script>
     <script src="bootstrap-5.3.2-dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <!-- Partie saisie de données -->
 <body style="background-image: url(animal-background.jpg)">
     <div class="row ms-2">
         <div class="col container border-1">
-            <form class=" row g-3" onsubmit="event.preventDefault()">
+            <form id="Form" class=" row g-3" onsubmit="event.preventDefault()">
                 <h1 class="display-6 fw-semibold bg-me text-break mb-4 pe-auto" > Informations pour rendez-vous</h1>
                 <div class="mb-3 col-md-6">
                     <label for="NomProprio" class="form-label fw-bold" style="background: white"> Nom du propriétaire* </label>
-                    <input type="text" required placeholder="Xavier Ayotte" min="5" max="25" name="NomProprio" id="NomProprio" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{5,10}\s[a-zA-Z]{5,10}$" >
+                    <input type="text" required placeholder="Xavier Ayotte" min="5" max="25" name="NomProprio" id="NomProprio" class="form-control text-black" pattern="^[A-Z]{1}[a-zA-Z]{2,10}\s[a-zA-Z\-\/]{5,10}$" >
                 </div>
                 <div class="mb-3 col-md-6">
                     <!-- Validation faite avec Regex -->
@@ -48,12 +49,12 @@
                 <!-- **Ajouter pattern pour ne pas avoir de chiffres dans le nom -->
                 <div class="mb-3 col-md-6">
                     <label for="NomAnimal" class="form-label fw-bold"> Nom de l'animal* </label>
-                    <input type="text" required placeholder="Léo" min="5" max="25" name="Nom" id="NomAnimal" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{5,10}\s[a-zA-Z]{3,10}$" >
+                    <input type="text" required placeholder="Léo" min="5" max="25" name="Nom" id="NomAnimal" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{2,10}\s[a-zA-Z\-\/]{5,20}$" >
                 </div>
                 <!-- **Ajouter pattern pour ne pas avoir de chiffres dans le nom. Surnom facultatif -->
                 <div class="mb-3 col-md-6">
                     <label for="SurnomAnimal" class="form-label fw-bold"> Surnom de l'animal </label>
-                    <input type="text" placeholder="Little Man" min="5" max="25" name="Nom" id="SurnomAnimal" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{5,10}\s[a-zA-Z]{3,10}$" >
+                    <input type="text" placeholder="Little Man" min="5" max="25" name="Nom" id="SurnomAnimal" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{2,10}\s[a-zA-Z\-\/]{5,20}$" >
                 </div>
                 <div class="mt-0  offset-4 row col-md-5">
                     <div class="form-check">
@@ -69,14 +70,15 @@
                 <div class="row"></div>
 
                 <div>
-                    <input class="btn btn-primary" type="submit" value="Soumettre" id="BoutonEnvoyer">
+                    <input class="btn btn-primary" type="submit" value="submit" id="BoutonEnvoyer">
                     <input class="btn btn-secondary" type="reset" value="Annuler" id="BoutonAnnuler">
                 </div>
 
             </form>
         </div>
-        <div id="ListeRDV" class="col 4 container">
+        <div id="ListeRDV" class="col 4 container fw-bold">
             <h1 class="display-6"> Liste de rendez-vous</h1>
+            <p id="ChaineBold" class="Gras"> Informations du rendez-vous : <br></p>
         </div>
     </div>
 
