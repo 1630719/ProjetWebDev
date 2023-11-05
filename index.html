@@ -25,81 +25,93 @@
         <div class="col container border-1">
             <form id="Form" class=" row g-3" onsubmit="event.preventDefault()">
                 <h1 class="display-6 fw-semibold bg-me text-break mb-4 pe-auto" > Informations pour rendez-vous</h1>
+
+                <!-- Nom du propriétaire -->
                 <div class="mb-3 col-md-6">
                     <label for="NomProprio" class="form-label fw-bold" style="background: white"> Nom du propriétaire* </label>
                     <input type="text" required placeholder="Xavier Ayotte" min="5" max="25" name="NomProprio" id="NomProprio" class="form-control text-black" pattern="^[A-Z]{1}[a-zA-Z]{2,10}\s[a-zA-Z\-\/]{5,15}$" >
                     <p id="ErreurNomProprio" class="text-danger LabelErreur mb-0"></p>
                 </div>
+
+                <!-- Adresse courriel -->
                 <div class="mb-3 col-md-6">
-                    <!-- Validation faite avec Regex -->
                     <label for="Courriel" class="form-label fw-bold" style="background: white"> Courriel* : </label>
-                    <input type="email" name="Courriel" id="Courriel" required class="form-control" placeholder="1630719@cegepoutaouais.qc.ca" pattern=">
+                    <input type="email" name="Courriel" id="Courriel" required class="form-control" placeholder="1630719@cegepoutaouais.qc.ca" pattern="
                     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/">
                     <p id="ErreurCourriel" class="text-danger LabelErreur mb-0"> </p>
                 </div>
+
+                <!-- Numéro du cellulaire -->
                 <div class="mb-3 col-md-6">
-                    <!-- Validation faite avec Regex -->
                     <label for="NumTel" class="form-label fw-bold "> Numéro de cellulaire* </label>
                     <input type="tel" name="NumTel" id="NumTel" required class="form-control" placeholder="819-555-1234" pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$">
                     <p id="ErreurNumTel" class="text-danger LabelErreur mb-0"> </p>
                 </div>
-                <div class="mb-3 col-md-6">
-                    <!-- Validation faite avec Regex -->
-                    <label for="NumMaison" class="form-label fw-bold"> Numéro à la maison : </label>
-                    <input type="tel" name="NumMaison" id="NumMaison"  class="form-control" placeholder="819 555-5555" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$">
-                </div>
 
-
+                <!-- Nom de l'animal -->
                 <div class="mb-3 col-md-6">
                     <label for="NomAnimal" class="form-label fw-bold"> Nom de l'animal* </label>
                     <input type="text" required placeholder="Léo" min="5" max="25" name="Nom" id="NomAnimal" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{2,10}\s[a-zA-Z\-\/]{5,20}$" >
+                    <p id="ErreurNomAnimal" class="text-danger LabelErreur mb-0"> </p>
                 </div>
-                <!-- Surnom facultatif, dons pas d'attirbut required-->
-                <div class="mb-3 col-md-6">
-                    <label for="SurnomAnimal" class="form-label fw-bold"> Surnom de l'animal </label>
-                    <input type="text" placeholder="Little Man" min="5" max="25" name="Nom" id="SurnomAnimal" class="form-control" pattern="^[A-Z]{1}[a-zA-Z]{2,10}\s[a-zA-Z\-\/]{5,20}$" >
-                </div>
+
+                <!-- Age de l'animal -->
                 <div class="mb-3 col-md-6">
                     <label for="AgeAnimal" class="form-label fw-bold"> Age de l'animal* : </label>
                     <input type="number" min="1" max="15" name="AgeAnimal" id="AgeAnimal" required  class="form-control">
+                    <p id="ErreurAgeAnimal" class="text-danger LabelErreur mb-0"> </p>
                 </div>
+
+                <!-- Type d'animal (select) -->
                 <div class="mb-3 col-md-6">
                     <label for="TypeAnimal" class="form-label fw-bold"> Type de l'animal* </label>
                     <select required  name="TypeAnimal" id="TypeAnimal" class="form-select">
                         <option value="Chat"> Chat </option>
+                        <option value="Chien"> Chien </option>
+                        <option value="Lézard"> Lézard </option>
+                        <option value="Lapin"> Lapin </option>
+                        <option value="Rongeur"> Rongeur </option>
                     </select>
                 </div>
+
+                <!-- Poids de l'animal -->
                 <div class="mb-3 col-md-6">
-                    <label for="PoidsAnimal" class="form-label fw-bold"> Poids de l'animal* : </label>
-                    <input type="number" min="5" max="25" name="PoidsAnimal" id="PoidsAnimal" required class="form-control">                 </div>
-                <div class="mt-0  col-md-5">
+                    <label for="PoidsAnimal" class="form-label fw-bold"> Poids de l'animal (lbs)* : </label>
+                    <input type="number" min="5" max="25" name="PoidsAnimal" id="PoidsAnimal" required class="form-control">
+                </div>
+
+                <!-- Sexe de l'animal -->
+                <div class=  "col-md-5"> <!-- Container pour ajuster l'espace entre le label et les cercles à cocher -->
                     <div class="form-check">
                         <p class="fw-bold"> Sexe de l'animal* :</p>
-                        <input type="radio" id="SexeMale" name="SexeAnimal" required value="Male" class="form-check-input border-black border-2 ">
+                        <input type="radio" id="SexeMale" itemid="AAA" name="SexeAnimal" required value="Male" class="form-check-input border-black border-2">
                         <label for="SexeMale" class="form-label"> Mâle </label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" id="SexeFemelle" name="SexeAnimal" value="Femelle" class="form-check-input border-black border-2">
+                        <input type="radio" id="SexeFemelle" itemid="AAA" name="SexeAnimal" value="Femelle" class="form-check-input border-black border-2">
                         <label for="SexeFemelle" class="form-label"> Femelle </label>
                     </div>
-
                 </div>
-                <div class="row"></div>
 
+                <!-- DAte du rendez-vous -->
+                <div class="mb-3 col-md-6 row" >
+                    <label for="DatePicker" id="DateLabel" class="form-label fw-bold"> Date* : </label>
+                    <input type="date" id="DatePicker" required class="form-control">
+                </div>
+
+                <!-- Section boutons envoyer (sans effacer les données) et annuler (qui vide la page) -->
                 <div>
-                    <input class="btn btn-primary" type="submit" value="submit" id="BoutonEnvoyer">
+                    <input class="btn btn-primary" type="submit" value="Envoyer" id="BoutonEnvoyer">
                     <input class="btn btn-secondary" type="reset" value="Annuler" id="BoutonAnnuler">
                 </div>
-
             </form>
         </div>
-        <div id="ListeRDV" class="col mt-2 container bg-white bg-opacity-50 border border-black fw-bold">
+
+        <!-- Section/container pour afficher la liste des rendez-vous -->
+        <div id="ListeRDV" class="col mt-2 container bg-white bg-opacity-50 border border-2 border-black fw-bold">
             <h1 class="display-6 fw-semibold"> Liste de rendez-vous</h1>
-            <p id="ChaineBold" class="Gras"> Informations du rendez-vous : <br></p>
+            <p id="ChaineBold" class="Gras mb-0"> Informations du rendez-vous : </p>
         </div>
     </div>
-
-
-
 </body>
 </html>
