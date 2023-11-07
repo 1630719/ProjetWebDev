@@ -74,7 +74,7 @@ $NumTel.on('blur', function ()
 //Validation du nom de l'animal
 $NomAnimal.on('blur', function ()
 {
-    if (!$NomAnimal.val().match("^[A-Z]{1}[a-zA-Z]{2,10}\\s[a-zA-Z\\-\\/]{5,15}$"))
+    if (!$NomAnimal.val().match("^[A-Z]{1}[a-zA-Z]{2,10}[\\s]{0,1}[a-zA-Z\\-\\/]{0,15}$"))
     {
         $LabelNomAnimal.text("Le nom doit débuter par une majuscule et entre 3-25 caractères")
     }
